@@ -1,0 +1,18 @@
+{
+  "port":8822,
+  "message":"ok",
+  "index":"index.html",
+  "root":"www",
+  "type":{
+    ".jpg":"image/jpeg",
+    ".png":"image/png",
+    ".gif":"image/gif",
+    ".css":"text/css",
+    ".js":"application/x-javascript",
+    ".html":"text/html",
+    ".mp4":"video/mpeg4"
+  },
+  "last-modified":false,
+  "cache-control":"max-age=2",
+  "server-info":"nodejs"
+}

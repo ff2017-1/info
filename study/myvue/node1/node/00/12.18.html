@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var http=require("http")
+    var fs=require("fs")
+    http.createServer(function (req,res) {
+        console.log("ok")
+        fs.createReadStream("./12.18.html")
+    }).listen(8888)
+</script>
