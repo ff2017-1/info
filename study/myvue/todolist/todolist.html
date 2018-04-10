@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<style>
+    #root {
+        width: 50%;
+        height: 100%;
+        border: 1px solid #0D0D0D;
+        border-top: 0;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    input[type=text] {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        padding: 5px;
+    }
+    .state{
+        width:100%;
+        padding: 5px;
+    }
+    input[type=submit]{
+        float: right;
+        margin-left: 10px;
+        padding: 2px;
+        outline: none;
+    }
+    .list{
+        width:100%;
+        margin-top: 30px;
+    }
+    .list>div>li{
+        width: 100%;
+        height:25px;
+        line-height: 25px;
+        border-bottom: 1px solid #aaa;
+    }
+    .list>div>li>.opt{
+        float: left;
+        width: 10px;
+        height:10px;
+        margin-top: 8px;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 1px solid #0D0D0D;
+    }
+    .list>div>li>div{
+        float: left;
+    }
+    .list>div>li>.del{
+        float: right;
+    }
+    .red{
+        background: red;
+    }
+    .check{
+        background:purple;
+        color: #ffffff;
+    }
+</style>
+<div id="root">
+    <input type="text" placeholder="请输入事项" v-model="con" @keyup.13="add()" ref="abc" >
+    <ul class="state">
+        <input type="submit" value="全部" @click="showlist('all')" :class="{check:status=='all'}">
+        <input type="submit" value="已完成" @click="showlist('1')" :class="{check:status=='1'}">
+        <input type="submit" value="未完成" @click="showlist('0')" :class="{check:status=='0'}">
+    </ul>
+
+
+
+    <ul class="list" v-for="item in datas">
+
+        <div>
+            <li>
+                <span class="opt" @click="changeState(item)" :class="{red:item.state==1}"></span>
+                <div v-if="item.edit" @dblclick="edit(item)">
+                    <div>
+                        {{item.title}}
+                    </div>
+                </div>
+                <div v-else>
+                    <input type="text" v-model="item.title" @blur="edit(item)">
+                </div>
+                <span class="del" @click="del(item.id)">删除</span>
+            </li>
+        </div>
+
+    </ul>
+    <div v-show="all.length==0">没有数据</div>
+</div>
+<script>
+    new Vue({
+        el: '#root',
+        data: {
+            all:localStorage.name?JSON.parse(localStorage.name):[],
+            con:'',
+            status:"all",
+
+        },
+        methods:{
+            add(){
+                if(this.con==''){
+                    alert('请输入内容');
+                    return ;
+                }
+                var obj={};
+                obj.title=this.con;
+                obj.state=1;
+                obj.edit=true;
+                obj.id=Math.random()+new Date().getTime();
+                this.all.push(obj);
+                this.con=''
+                localStorage.name = JSON.stringify(this.all)
+            },
+            showlist(val){
+                this.status=val;
+            },
+            changeState(obj){
+                if(obj.state==0){
+                    obj.state=1;
+                }else{
+                    obj.state=0;
+                }
+                localStorage.name = JSON.stringify(this.all)
+
+            },
+            del(ids){
+                this.all=this.all.filter(element=>element.id != ids)
+                localStorage.name = JSON.stringify(this.all)
+            },
+            edit(obj){
+                console.log(obj.edit);
+                obj.edit=(!obj.edit);
+                localStorage.name = JSON.stringify(this.all)
+            }
+        },
+        computed:{
+            datas(){
+                return this.all.filter((a)=>{
+                    if(this.status=="all"){
+                        return a;
+                    }else{
+                        if(a.state==this.status){
+                            return a;
+                        }
+                    }
+                })
+            }
+        },
+        mounted(){
+            this.$refs["abc"].focus();
+        }
+    })
+</script>
+</body>
+</html>
+<!--驼峰命名法-->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="div">div</div>
+    <span>span</span>
+    <div class="box">box</div>
+    <script>
+        var div=document.querySelector('.div')
+        var span=document.querySelector('span')
+        var box=document.querySelector('.box')
+        div.onclick=function () {
+            history.pushState({path:'div'},'','div')
+            fetch('./1.json').then(function (e) {
+                return e.json()
+            }).then(function (e) {
+                box.innerHTML=e
+            })
+            window.onpopstate=function () {
+
+            }
+        }
+        span.onclick=function () {
+            history.pushState({path:'span'},'','span')
+            fetch('./forword.html').then(function (e) {
+                console.log(e)
+                return e.text()
+            }).then(function (e) {
+                box.innerHTML=e
+            })
+        }
+
+    </script>
+</body>
+</html>

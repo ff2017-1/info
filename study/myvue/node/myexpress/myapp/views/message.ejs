@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    .box {
+        width: 300px;
+        height: 200px;
+        background: #00B7FF;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    #info {
+        width: 300px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        background: #ccc;
+    }
+
+    .mess {
+        width: 100%;
+        height: 100px;
+        background: #00B7FF;
+        padding-top: 30px;
+    }
+
+    .mess1 {
+        width: 100%;
+        height: 50%;
+    }
+
+    .mess1 > div {
+        display: block;
+        width: 42%;
+        height: 20px;
+        text-align: right;
+        color: red;
+    }
+
+
+    .mess > a {
+        display: block;
+        /*width: 300px;*/
+        /*margin-top: 20px;*/
+        height: 50px;
+        text-align: center;
+
+        /*color: red;*/
+    }
+</style>
+<body>
+<div class="box">
+    <div id="info">提示信息</div>
+    <div class="mess">
+        <div style="width:100%;height: 30px;text-align: center"><%=message%></div>
+        <div class="mess1" style="display: flex">
+            <div>3</div>s内返回
+        </div>
+        <a href="<%=url%>">点击返回</a>
+    </div>
+</div>
+</body>
+<script>
+    var info=document.querySelector('.mess1>div:nth-of-type(1)');
+    var   num=3
+    setInterval(function () {
+        num--;
+        info.innerHTML=num;
+        if(num<1){
+            location.href='/'
+        }
+    },1000)
+</script>
+</html>

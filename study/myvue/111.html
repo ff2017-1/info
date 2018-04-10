@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>张三</li>
+    <li>李四</li>
+    <li>王五</li>
+    <li>赵六</li>
+    <li>吕鉴</li>
+    <li>李欣荣</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+<script>
+//    console.log(document.getElementsByClassName("ul"))
+    var lis=document.querySelectorAll("ul>li")
+    console.log(lis);
+    lis.forEach(function(ele,index){
+        console.log(ele)
+        console.log(index)
+        ele.onclick=function(){
+            alert(ele.innerHTML)
+            ele.classList.add("mystyle")  //加类名
+            ele.style.color="red"
+        }
+    })
+</script>
+</body>
+</html>

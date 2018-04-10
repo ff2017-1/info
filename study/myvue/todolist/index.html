@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项12312</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div id="root">
+    <custom-input :con="con" @listenevt="adds"></custom-input>
+    <custom-state  @listenevt1="showlist" :status="status"></custom-state>
+    <custom-list :datas="datas" :con="con" :all="all" @listenevt="del" @listenevt1="edit" @listenevt2="changeState"></custom-list>
+</div>
+<script src="components.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    let str='  asdasdr   ';
+////charAt()按指定位置查询字符串
+//    console.log(str.charAt(0))   //指定第n个字符
+//    console.log(str.charAt(12))   //超出范围显示空字符
+////    charCodeAt（）String中第n个字符的Unicode编码
+//    console.log(str.charCodeAt(1))   //指定第1个字符的Unicode编码
+//    console.log(str.charCodeAt(12))   //超出范围显示NAN
+//    console.log(str.indexOf('d',3))   //根据下标从前往后查找指定字符 第一参数必选，第二参数可选
+//    console.log(str.indexOf('n'))   //未找到，或超出length返回-1
+//    console.log(str.lastIndexOf('d',3))   //根据下标从后往前查找指定字符 第一参数必选，第二参数可选
+//    console.log(str.lastIndexOf('n'))   //未找到，或超出length返回-1
+//    console.log(str.includes('s'))//判断某一字符串中是否包含某一字符串值，有返回值true；如无返回false
+////??? console.log(str.match('s'))//找到一个或多个正则表达式的匹配
+//    console.log(str.split('d',2))//1.把字符串转换为数组2.字符串的拆分
+//    console.log(str.repeat(2)) //将字符串重复若干次
+//    console.log(str.concat('d',2)) ;  //连接字符串,参数是要连接的字符串
+//    console.log(str.slice(-3));//1.参数一个值时返回从参数位置截取到字符串末尾的字符串，超出length时返回空字符串
+//                                //2.参数2个值时从参数1截取到参数2的字符串（不包括结束位置的字符）超出length时返回参数1位置到字符串末尾位置字符
+//                                //    超出俩个参数只识别前俩个参数
+////                                  参数为负值时从后往前截取str.slice(开始位置，结束位置)
+//    console.log(str.substr(-3)) //1.参数一个值时返回从参数位置截取到字符串末尾的字符串，超出length时返回空字符串
+//                                //2.参数2个值时从参数1截取到参数2的字符串（包括结束位置的字符
+//                                //参数为负值时从后往前截取例：substr（开始位置，截取长度）
+//    console.log(str.substring(-1))   //不支持负数
+//    //从某一指定位置开始到某一指定位置结束，截取下来的不包括结束位置的字符
+//    console.log(str.trim())//清除字符串前后空格（空白）
+//    console.log(str.trimLeft())//清除字符串前置空格（空白）
+//    console.log(str.trimRight())//清除字符串后置空格（空白）
+//    console.log(str.localeCompare('assdasdr'))//清除字符串后置空格（空白）
+//var arr=[1,2,3,4,5,6,7,8,0,1,2,3,2,4]
+// function max(arr) {
+//        let max=arr[0];
+//     for(let i=0;i<arr.length;i++){
+//
+//         if(max<arr[i]){
+//             max=arr[i]
+//
+//         }
+//     }
+//   return max
+// }
+// console.log(max(arr))
+//    function sort(arr) {
+//        for(let i=0;i<arr.length;i++){
+//            for(let j=i+1;j<arr.length;j++){
+//                if(arr[i]>arr[j]){
+//                let temp=arr[i];
+//                arr[i]=arr[j];
+//                arr[j]=temp;
+//              }
+//            }
+//        }
+//        return arr
+//    }
+//    console.log(sort(arr))
+//    console.log(arr.sort(function (a,b) {
+//        return a<b;
+//    }))
+//var a
+//    alert(a==undefined)
+//var name = "The Window";
+//var object = {
+//    name : "My Object",
+//    getNameFunc : function(){
+//        return function(){
+//            return this.name;    //window
+//        };
+//    }
+//};
+//alert(object.getNameFunc()());
+
+//var name = "The Window";
+//var object = {
+//    name : "My Object",
+//    getNameFunc : function(){
+//        var that = this;
+//        return function(){
+//            return that.name;
+//        };
+//    }
+//};
+//alert(object.getNameFunc()());     //obj
+//
+//function sum(arr) {
+//    var sum =0;
+//    for(var i=0;i<arr.length;i++){
+//
+//        sum+=arr[i]
+//    }
+//    return sum
+//}
+//function remove(arr, item) {
+//    var newarr=[];
+//    for(var i=0;i<arr.length;i++){
+//        if(arr[i]!=item){
+//            newarr.push(arr[i])
+//        }
+//
+//    }
+//    return newarr
+//}
+//arr=[1,2,3,4,5,6]
+////console.log(sum(arr))
+//console.log(remove(arr,3))
+    var date=new Date()
+console.log(date.getDay())
+console.log(date.getDate())
+</script>
+</body>
+</html>

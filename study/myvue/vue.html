@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--<script src="数据绑定/vue.js"></script>-->
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root" style="width:500px;margin: auto">
+    <span v-on:click="aa()">{{one}}</span>+<span v-on:click="bb()">{{two}}</span>={{result}}
+    <k :message="message" :size="size"></k>
+</div>
+<script>
+    /*
+    *
+    * mvc
+    *
+    *   mvvm  mvc  双向数据绑定
+    * */
+    Vue.component('k',{
+        props:['message','size'],
+        template:`<div @click="aa1()">{{name}}   {{size}}</div>`,
+        data(){
+            return {
+                name:this.message,
+                size:this.size,
+            }
+        },
+        methods:{
+            aa1(){
+                this.name="lisi"
+            }
+        },
+
+
+    });
+    var obj = new Vue({
+        el: "#root",
+        data: {
+            one: 0,
+            two: 0,
+            result: 0,
+            name:'dasda',
+            message:'zhangsab',
+            size:'2'
+        },
+        methods: {
+            aa() {
+                this.one = this.one * 1 + 1;
+            },
+            bb() {
+                this.two = this.two * 1 + 1;
+            }
+        },
+        watch: {
+            one(val1,val2) {
+                this.result = val1 * 1 + this.two;
+            },
+            two(val1, val2) {
+                this.result = val1 * 1 + this.one;
+            },
+        }
+
+    })
+</script>
+</body>
+</html>

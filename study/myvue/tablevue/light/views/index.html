@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/vue.js"></script>
+    <script src="/js/vue-router.js"></script>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<style>
+    .router-link-exact-active{
+        color: red;
+    }
+    .aa{
+        color: #0000cc;
+    }
+    .bb{
+        color:#0000cc;
+    }
+    .cc{
+         color:#000;
+     }
+    /* 可以设置不同的进入和离开动画 */
+    /* 设置持续时间和动画函数 */
+    .slide-fade-enter-active {
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        transition: all .3s ease;
+    }
+    .slide-fade-leave-active {
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+        /* .slide-fade-leave-active for below version 2.1.8 */ {
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        transform: translateX(200px);
+        opacity: 0;
+    }
+</style>
+<body>
+    <div id="root">
+        <transition name="slide-fade">
+            <router-view></router-view>
+        </transition>
+
+    </div>
+    <script src="/js/components.js"></script>
+    <script src="/js/router.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
